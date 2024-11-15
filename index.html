@@ -20,8 +20,9 @@
 <body>
 
   <select id="picker" style="margin: 10px; padding: 5px; font-size: 16px" onchange="update()">
-    <option value="#schnee">Schneeflöckchen</option>
     <option value="#wolken">Über den Wolken</option>
+    <option value="#schnee">Schneeflöckchen</option>
+    <option value="#kuckuck">Der Winter ist vorüber</option>
   </select>
 
   <div id="sheet" style="margin: 40px; font-family: monospace; font-size: 24px;"></div>
@@ -63,7 +64,11 @@
     SONGS = {
         "#schnee": [
             "efg(C/e)g ad(G/d)d def(Dm)f ge(C)",
-            "efg(C/e)g cb(F)a gfe(C/e)f d(G/d)c(C)",
+            "efg(C/e)g cb(F)a gfe(C/e)f d(G/d)c(C)"
+        ],
+        "#kuckuck": [
+            "gc(C/e)dedc(C/e)c gc(C/e)defd(G/d) dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)",
+            "ge ge ga(F)gfed(G/d) dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)"
         ],
         "#wolken": [
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
@@ -72,7 +77,7 @@
             "gac(C)aged(Dm) -(G/d) ddfed(C)c",
             "c(C)bcca(F/c) -(G/d) dddeff(F)ecg(C/e)",
             "c(Am/e)cccdee(Dm/f)ded -(G/d) bbbbbdd(C/e)cdc",
-            "a(F)aaaacg(C/e)eee -(G/d) ddfedc(C)",
+            "a(F)aaaacg(C/e)eee -(G/d) ddfedc(C)"
         ],
     }
 
