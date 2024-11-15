@@ -9,6 +9,7 @@
         display: inline-block;
         width: 25px;
         height: 55px;
+        text-align: center;
     }
     .chord {
         font-size: 12px;
@@ -17,18 +18,20 @@
   </style>
 </head>
 
-<body>
+<body style="margin: 50px;">
 
-  <select id="picker" style="margin: 10px; padding: 5px; font-size: 16px" onchange="update()">
+  <select id="picker" style="padding: 5px; font-size: 16px" onchange="update()">
     <optgroup label="Deutsche Lieder">
         <option value="#wolken">Über den Wolken</option>
         <option value="#schnee">Schneeflöckchen</option>
+        <option value="#mond">Der Mond ist aufgegangen</option>
         <option value="#kuckuck">Der Winter ist vorüber</option>
+        <option value="#hymne">Nationalhymne</option>
     </optgroup>
   </select>
 
-  <div id="sheet" style="margin: 40px; font-family: monospace; font-size: 24px;"></div>
-  <div id="text" style="margin: 40px; font-size: 16px;"></div>
+  <div id="sheet" style="margin: 50px 0; font-family: monospace; font-size: 24px;"></div>
+  <div id="text" style="font-size: 16px; line-height: 1.5;"></div>
 
   <script>
 
@@ -78,6 +81,10 @@
             "ge ge ga(F)gfed(G/d)",
             "dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)"
         ],
+        "#mond": [
+            "c(C)d(G/b)c(C)f(Dm)e(C)d(G/b)c(C) ee(C)ea(F/c)g(C)f(G/b)e(C) ee(C)ef(F/c)e(C)d(G/d)",
+            "c(C)d(G/b)c(C)f(Dm)e(C)d(G/b)c(C) ee(C)ea(F/c)g(C)f(G/b)e(C) ee(C)ef(F/c)e(C)d(G/d)dc(C)"
+        ],
         "#wolken": [
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
@@ -87,6 +94,11 @@
             "c(Am/e)cccdee(Dm/f)ded -(G/d) bbbbbdd(C/e)cdc",
             "a(F)aaaacg(C/e)eee -(G/d) ddfedc(C)"
         ],
+        "#hymne": [
+            "c(C)de(C)df(G)ed(G)bc(C) a(F)gf(F)ed(F)e(D)cg(G)",
+            "d(G)edbf(G)e(C)d(G)bg g(C)f(G)be(C) ef(D)'f'gg(G)",
+            "c(C)bb(F)ag (C)a(F)gg(G)fe(C) d(G)efg(C)af(F)dc(C)e(G)dc(C)",
+        ]
     }
 
     LYRICS = {
