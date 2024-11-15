@@ -5,20 +5,10 @@
   <meta charset="utf-8">
   <title></title>
   <style>
-    body {
-        font-family: monospace;
-        font-size: 24px;
-    }
-    #sheet {
-        margin: 40px;
-    }
-    .line {
-
-    }
     .beat {
         display: inline-block;
         width: 25px;
-        height: 50px;
+        height: 55px;
     }
     .chord {
         font-size: 12px;
@@ -29,12 +19,12 @@
 
 <body>
 
-  <select id="picker" onchange="update()">
+  <select id="picker" style="margin: 10px; padding: 5px; font-size: 16px" onchange="update()">
     <option value="#schnee">Schneeflöckchen</option>
     <option value="#wolken">Über den Wolken</option>
   </select>
 
-  <div id="sheet"></div>
+  <div id="sheet" style="margin: 40px; font-family: monospace; font-size: 24px;"></div>
 
   <script>
 
@@ -79,10 +69,10 @@
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
             "e(C)eecbcd(Dm) -(G/d) ddedcdf(C/e)e",
-            "gac(C)aged(Dm) -(G/d) ddfed(C/e)c",
+            "gac(C)aged(Dm) -(G/d) ddfed(C)c",
             "c(C)bcca(F/c) -(G/d) dddeff(F)ecg(C/e)",
-            "c(Am)cccdee(Dm)ded -(G/d) bbbbbdd(C/e)cdc",
-            "a(F)aaaacg(C)eee -(G/d) ddfedc(C/e)",
+            "c(Am/e)cccdee(Dm/f)ded -(G/d) bbbbbdd(C/e)cdc",
+            "a(F)aaaacg(C/e)eee -(G/d) ddfedc(C)",
         ],
     }
 
