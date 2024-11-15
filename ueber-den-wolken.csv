@@ -1,4 +1,4 @@
-pitch,octave,chord,inversion
+pitch,shift,chord,inv
 5,-1,,
 6,-1,,
 1,0,1,0
