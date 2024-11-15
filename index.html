@@ -20,22 +20,28 @@
 <body>
 
   <select id="picker" style="margin: 10px; padding: 5px; font-size: 16px" onchange="update()">
-    <option value="#wolken">Über den Wolken</option>
-    <option value="#schnee">Schneeflöckchen</option>
-    <option value="#kuckuck">Der Winter ist vorüber</option>
+    <optgroup label="Deutsche Lieder">
+        <option value="#wolken">Über den Wolken</option>
+        <option value="#schnee">Schneeflöckchen</option>
+        <option value="#kuckuck">Der Winter ist vorüber</option>
+    </optgroup>
   </select>
 
   <div id="sheet" style="margin: 40px; font-family: monospace; font-size: 24px;"></div>
+  <div id="text" style="margin: 40px; font-size: 16px;"></div>
 
   <script>
 
     let picker = document.getElementById("picker")
     let sheet = document.getElementById("sheet")
+    let text = document.getElementById("text")
 
     function update() {
         document.location.hash = picker.value
         let song = SONGS[picker.value]
         sheet.innerHTML = ""
+        let lyrics = LYRICS[picker.value] || []
+        text.innerHTML = lyrics.join("<br/>")
         for (let line of song) {
             let row = document.createElement("div")
             var i = 0
@@ -67,8 +73,10 @@
             "efg(C/e)g cb(F)a gfe(C/e)f d(G/d)c(C)"
         ],
         "#kuckuck": [
-            "gc(C/e)dedc(C/e)c gc(C/e)defd(G/d) dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)",
-            "ge ge ga(F)gfed(G/d) dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)"
+            "gc(C/e)dedc(C/e)c gc(C/e)defd(G/d)",
+            "dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)",
+            "ge ge ga(F)gfed(G/d)",
+            "dd(G/d)cbag(G/d)g gg(G/d)gabc(C/e)"
         ],
         "#wolken": [
             "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
@@ -78,6 +86,15 @@
             "c(C)bcca(F/c) -(G/d) dddeff(F)ecg(C/e)",
             "c(Am/e)cccdee(Dm/f)ded -(G/d) bbbbbdd(C/e)cdc",
             "a(F)aaaacg(C/e)eee -(G/d) ddfedc(C)"
+        ],
+    }
+
+    LYRICS = {
+        "#kuckuck": [
+            "Der Winter ist vorüber, vorbei ist der April,",
+            "im Maien heimgekommen, der Kuckuck bleibt nicht still.",
+            "Kuckuck, kuckuck, vorbei ist der April,",
+            "im Maien heimgekommen, der Kuckuck bleibt nicht still."
         ],
     }
 
