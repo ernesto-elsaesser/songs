@@ -30,8 +30,8 @@
 <body>
 
   <select id="picker" onchange="update()">
-    <option value="schnee">Schneeflöckchen</option>
-    <option value="wolken">Über den Wolken</option>
+    <option value="#schnee">Schneeflöckchen</option>
+    <option value="#wolken">Über den Wolken</option>
   </select>
 
   <div id="sheet"></div>
@@ -42,6 +42,7 @@
     let sheet = document.getElementById("sheet")
 
     function update() {
+        document.location.hash = picker.value
         let song = SONGS[picker.value]
         sheet.innerHTML = ""
         for (let line of song) {
@@ -70,17 +71,23 @@
     }
 
     SONGS = {
-        "schnee": [
+        "#schnee": [
             "efg(C/e)g ad(G/d)d def(Dm)f ge(C)",
             "efg(C/e)g cb(F)a gfe(C/e)f d(G/d)c(C)",
         ],
-        "wolken": [
-            "gac(C)aged(Dm) -(G/d) ggggggf(C)e",
-            "e(C)eecbcd(Dm) -(G/d) ddedcdf(C)e",
-            "gac(C)aged(Dm) -(G/d) ddfed(C)c",
+        "#wolken": [
+            "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
+            "gac(C)aged(Dm) -(G/d) ggggggf(C/e)e",
+            "e(C)eecbcd(Dm) -(G/d) ddedcdf(C/e)e",
+            "gac(C)aged(Dm) -(G/d) ddfed(C/e)c",
+            "c(C)bcca(F/c) -(G/d) dddeff(F)ecg(C/e)",
+            "c(Am)cccdee(Dm)ded -(G/d) bbbbbdd(C/e)cdc",
+            "a(F)aaaacg(C)eee -(G/d) ddfedc(C/e)",
         ],
     }
 
+    if (document.location.hash.length < 2) document.location.hash = "#wolken"
+    picker.value = document.location.hash
     update()
 
   </script>
