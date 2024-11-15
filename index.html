@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    body {
+        font-family: monospace;
+        font-size: 24px;
+    }
+    #sheet {
+        margin: 40px;
+    }
+    .line {
+
+    }
+    .beat {
+        display: inline-block;
+        width: 25px;
+        height: 50px;
+    }
+    .chord {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <select id="picker" onchange="update()">
+    <option value="schnee">Schneeflöckchen</option>
+    <option value="wolken">Über den Wolken</option>
+  </select>
+
+  <div id="sheet"></div>
+
+  <script>
+
+    let picker = document.getElementById("picker")
+    let sheet = document.getElementById("sheet")
+
+    function update() {
+        let song = SONGS[picker.value]
+        sheet.innerHTML = ""
+        for (let line of song) {
+            let row = document.createElement("div")
+            var i = 0
+            while (i < line.length) {
+                let beat = document.createElement("div")
+                beat.className = "beat"
+                sheet.appendChild(beat)
+                let note = line[i]
+                i += 1
+                var chord = ""
+                if (line[i] == "(") {
+                    i += 1
+                    while (line[i] != ")") {
+                        chord += line[i]
+                        i += 1
+                    }
+                    i += 1
+                }
+                beat.innerHTML = '<div class=chord>' + chord + "</div><div>" + note + "<div>"
+                row.appendChild(beat)
+            }
+            sheet.appendChild(row)
+        }
+    }
+
+    SONGS = {
+        "schnee": [
+            "efg(C/e)g ad(G/d)d def(Dm)f ge(C)",
+            "efg(C/e)g cb(F)a gfe(C/e)f d(G/d)c(C)",
+        ],
+        "wolken": [
+            "gac(C)aged(Dm) -(G/d) ggggggf(C)e",
+            "e(C)eecbcd(Dm) -(G/d) ddedcdf(C)e",
+            "gac(C)aged(Dm) -(G/d) ddfed(C)c",
+        ],
+    }
+
+    update()
+
+  </script>
+</body>
+
+</html>
